@@ -12,4 +12,6 @@ class PeopleModel:ObservableObject {
         Person(name: "Ann", description:"fdsfs", image:"cat"),
         Person(name: "Jolie", description: "fdsasgggr", image:"dog")
     ]
+    
+    @Published var searchText: String = ""
 }

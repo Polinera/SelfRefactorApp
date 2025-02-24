@@ -23,6 +23,7 @@ struct HistoryPage: View {
                                 PersonRowView(person: person)
                             }
             }
+            .searchable(text: $model.searchText)
         }
     }
     }
