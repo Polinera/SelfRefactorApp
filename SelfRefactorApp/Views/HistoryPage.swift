@@ -18,15 +18,18 @@ struct HistoryPage: View {
     
     var body: some View {
         NavigationView {
-            List{
-                ForEach(model.allPeople) { person in
+                    List {
+                        ForEach(model.allPeople) { person in
+                            NavigationLink(destination: DetailedPersonPage(person: person)) {
                                 PersonRowView(person: person)
                             }
+                        }
+                    }
+                    .navigationTitle("People")
+                    .searchable(text: $model.searchText)
+                }
             }
-            .searchable(text: $model.searchText)
         }
-    }
-    }
 
 
 #Preview {

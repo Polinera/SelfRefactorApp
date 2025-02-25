@@ -3,6 +3,9 @@ import SwiftUI
 
 struct HomePage: View {
     @Environment(\.colorScheme) var colorScheme
+    @StateObject var quotesModel = DailyQuotesModel()
+    @State var rating: Double = 50
+    @StateObject var modelHabit = MainPageHabitsModel()
     
     var rectangleColor: Color {
            colorScheme == .light
@@ -22,45 +25,74 @@ struct HomePage: View {
                         .fill(rectangleColor)
                         .frame(height: 100)
                         .overlay(
-                            Text("good job keep going")
+                            Text(quotesModel.currentQuote)
                                 .foregroundColor(.black)
                                 .font(.headline)
                         )
                         .padding()
                     
-                    Spacer()
                     Text("Habits")
-                        .padding()
-                    HStack {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(secondaryColor)
-                                    .frame(height: 100)
-                                    .padding()
-                                
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(secondaryColor)
-                                    .frame(height: 100)
-                                    .padding()
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack {
+                                    ForEach(modelHabit.habits) { habit in
+                                        HabitRowView(habit: habit)
+                                            .onTapGesture {
+                                                modelHabit.markHabitAsDone(habit)
+                                            }
+                                    }
+                                }
                             }
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    Spacer()
+            
                     VStack{
-                        Image(systemName: "cat.fill")
                         Text("Mood dairy")
                         Text("Top 3 emotions")
+                        
                         HStack {
                                     RoundedRectangle(cornerRadius: 20)
                                         .fill(secondaryColor)
                                         .frame(height: 100)
                                         .padding(.horizontal,10)
+                                        .overlay(
+                                            Text("😀")
+                                                    .font(.system(size: 50))
+                                        )
                                     
+                            Gauge(value: rating, in: 0...100){
+                            }
+                                }
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        HStack {
                                     RoundedRectangle(cornerRadius: 20)
                                         .fill(secondaryColor)
-                                        .frame(height: 100) .padding(.horizontal,10)
+                                        .frame(height: 100)
+                                        .padding(.horizontal,10)
+                                        .overlay(
+                                            Text("🤩")
+                                                    .font(.system(size: 50))                                        )
+                                    
+                            Gauge(value: rating, in: 0...100){
+                                
+                            }
                                        
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(secondaryColor)
-                                .frame(height: 100) .padding(.horizontal,10)
+                            
+                                }
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        HStack {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(secondaryColor)
+                                        .frame(height: 100)
+                                        .padding(.horizontal,10)
+                                        .overlay(
+                                            Text("😜")
+                                                   .font(.system(size: 50))
+                                        )
+                                    
+                            Gauge(value: rating, in: 0...100){
+                                
+                            }
+                                       
+                            
                                 }
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
@@ -69,7 +101,6 @@ struct HomePage: View {
                 }
 
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .navigationTitle("Home Page")
                
             }
         }
