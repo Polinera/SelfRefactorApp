@@ -10,6 +10,8 @@ import SwiftUI
 struct PersonRowView: View {
     @Environment(\.colorScheme) var colorScheme
     
+
+    
     let person: Person
     
     var secondaryColor: Color {
@@ -26,7 +28,9 @@ struct PersonRowView: View {
                 .padding()
                 .overlay(
                     VStack {
-                        Image(systemName: person.image)
+                        Image(person.image)
+                            .resizable()
+                            .frame(width: 40, height: 60)
                         Text(person.name)
                     }
                 )

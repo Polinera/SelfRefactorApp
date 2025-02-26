@@ -21,6 +21,7 @@ struct HomePage: View {
     var body: some View {
             NavigationView {
                 VStack {
+                    Spacer()
                     RoundedRectangle(cornerRadius: 20)
                         .fill(rectangleColor)
                         .frame(height: 100)
@@ -49,48 +50,11 @@ struct HomePage: View {
                         Text("Top 3 emotions")
                         
                         HStack {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .fill(secondaryColor)
-                                        .frame(height: 100)
-                                        .padding(.horizontal,10)
-                                        .overlay(
-                                            Text("😀")
-                                                    .font(.system(size: 50))
-                                        )
-                                    
-                            Gauge(value: rating, in: 0...100){
+                            MainPageEmojiView(rating: 20, total: 100, emoji: "😀")
+                            MainPageEmojiView(rating: 40, total: 100, emoji: "😜")
+                            MainPageEmojiView(rating: 75, total: 100, emoji: "🤩")
                             }
-                                }
-                                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        HStack {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .fill(secondaryColor)
-                                        .frame(height: 100)
-                                        .padding(.horizontal,10)
-                                        .overlay(
-                                            Text("🤩")
-                                                    .font(.system(size: 50))                                        )
-                                    
-                            Gauge(value: rating, in: 0...100){
-                                
-                            }
-                                       
-                            
-                                }
-                                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        HStack {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .fill(secondaryColor)
-                                        .frame(height: 100)
-                                        .padding(.horizontal,10)
-                                        .overlay(
-                                            Text("😜")
-                                                   .font(.system(size: 50))
-                                        )
-                                    
-                            Gauge(value: rating, in: 0...100){
-                                
-                            }
+                        
                                        
                             
                                 }
@@ -98,13 +62,14 @@ struct HomePage: View {
                     }
                 
                     Spacer()
+               
                 }
 
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                
             }
         }
-    }
+    
 
     #Preview {
         HomePage()

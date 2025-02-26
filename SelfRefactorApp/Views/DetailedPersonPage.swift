@@ -12,6 +12,7 @@ struct DetailedPersonPage: View {
     
     var body: some View {
         VStack(spacing:20){
+            Image(person.image)
             Text(person.name)
             Text(person.description)
         }
