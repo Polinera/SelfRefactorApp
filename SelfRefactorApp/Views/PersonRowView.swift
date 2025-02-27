@@ -13,17 +13,12 @@ struct PersonRowView: View {
 
     
     let person: Person
-    
-    var secondaryColor: Color {
-        colorScheme == .light
-        ? Color(red: 240/255, green: 238/255, blue: 235/255)
-        : Color(red: 0.1, green: 0.1, blue: 0.1)
-    }
+  
     
     var body: some View {
         HStack{
             RoundedRectangle(cornerRadius: 20)
-                .fill(secondaryColor)
+                .fill(Color("secondaryColor"))
                 .frame(height: 100)
                 .padding()
                 .overlay(
