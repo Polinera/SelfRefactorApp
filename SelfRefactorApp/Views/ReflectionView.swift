@@ -15,7 +15,7 @@ struct ReflectionView: View {
             ScrollView{
                 HStack {
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color("primaryColor"))
+                        .fill(Color.primaryColor)
                         .frame(height: 100)
                         .padding()
                         .overlay{
@@ -27,7 +27,7 @@ struct ReflectionView: View {
                         }
                             
                             RoundedRectangle(cornerRadius: 20)
-                                .fill(Color("primaryColor"))
+                                .fill(Color.primaryColor)
                                 .frame(height: 100)
                                 .padding()
                                 .overlay{
@@ -44,7 +44,7 @@ struct ReflectionView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 VStack{
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color("secondaryColor"))
+                        .fill(Color.secondaryColor)
                         .frame(height: 100)
                         .padding()
                         .overlay(

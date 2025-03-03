@@ -17,12 +17,12 @@ struct MainPageEmojiView: View {
                Circle()
                    .stroke(lineWidth: 10)
                    .opacity(0.3)
-                   .foregroundColor(Color("primaryColor"))
+                   .foregroundColor(Color.primaryColor)
              
                Circle()
                    .trim(from: 0, to: CGFloat(normalizedRating))
                    .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                   .foregroundColor(Color("thirdColor"))
+                   .foregroundColor(Color.myAccentColor)
                    .rotationEffect(Angle(degrees: -90))
                
               

@@ -12,16 +12,16 @@ struct HomePage: View {
                 VStack {
                     Spacer()
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color("primaryColor"))
+                        .fill(Color.primaryColor)
                         .frame(height: 100)
                         .overlay(
                             Text(quotesModel.currentQuote)
-                                .foregroundColor(.black)
                                 .font(.headline)
                         )
                         .padding()
                     
                     Text("Habits")
+                    
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack {
