@@ -19,24 +19,22 @@ struct HomePage: View {
                                 .font(.headline)
                         )
                         .padding()
-                    
-                    Text("Habits")
-                    
+                    Text(String(localized: "Habits"))
                     
                     ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHStack {
-                                    ForEach(modelHabit.habits) { habit in
-                                        HabitRowView(habit: habit)
-                                            .onTapGesture {
-                                                modelHabit.markHabitAsDone(habit)
-                                            }
+                        LazyHStack {
+                            ForEach(modelHabit.habits) { habit in
+                                HabitRowView(habit: habit)
+                                    .onTapGesture {
+                                        modelHabit.toggleHabitDone(habit)
                                     }
-                                }
                             }
+                        }
+                    }
             
                     VStack{
-                        Text("Mood dairy")
-                        Text("Top 3 emotions")
+                        Text(String(localized: "Mood dairy"))
+                        Text("Top emotions")
                         
                         HStack {
                             MainPageEmojiView(rating: 20, total: 100, emoji: "😀")
@@ -44,8 +42,6 @@ struct HomePage: View {
                             MainPageEmojiView(rating: 75, total: 100, emoji: "🤩")
                             }
                         
-                                       
-                            
                                 }
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
@@ -58,6 +54,7 @@ struct HomePage: View {
                
             }
         }
+    
     
 
     #Preview {

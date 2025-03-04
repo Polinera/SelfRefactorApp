@@ -30,6 +30,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		886541CC2D76D6760096307B /* Resources */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		888E38242D6881FB00006944 /* SelfRefactorApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SelfRefactorApp;
@@ -75,6 +80,7 @@
 		888E38192D6881FB00006944 = {
 			isa = PBXGroup;
 			children = (
+				886541CC2D76D6760096307B /* Resources */,
 				888E38242D6881FB00006944 /* SelfRefactorApp */,
 				888E38352D6881FD00006944 /* SelfRefactorAppTests */,
 				888E383F2D6881FE00006944 /* SelfRefactorAppUITests */,
@@ -108,6 +114,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				886541CC2D76D6760096307B /* Resources */,
 				888E38242D6881FB00006944 /* SelfRefactorApp */,
 			);
 			name = SelfRefactorApp;
@@ -192,6 +199,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = 888E38192D6881FB00006944;
 			minimizedProjectReferenceProxies = 1;
@@ -328,6 +336,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -384,6 +393,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

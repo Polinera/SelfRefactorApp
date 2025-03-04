@@ -15,10 +15,9 @@ class MainPageHabitsModel:ObservableObject{
         Habit(name: "Practise coding")
     ]
     
-    func markHabitAsDone(_ habit: Habit) {
-            if let index = habits.firstIndex(where: { $0.id == habit.id }) {
-                habits[index].isDone = true
-            }
+    func toggleHabitDone(_ habit: Habit) {
+        if let index = habits.firstIndex(where: { $0.id == habit.id }) {
+            habits[index].isDone.toggle()
         }
     }
-
+}

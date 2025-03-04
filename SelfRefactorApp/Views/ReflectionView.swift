@@ -25,7 +25,6 @@ struct ReflectionView: View {
                                     .padding()
                             }
                         }
-                            
                             RoundedRectangle(cornerRadius: 20)
                                 .fill(Color.primaryColor)
                                 .frame(height: 100)

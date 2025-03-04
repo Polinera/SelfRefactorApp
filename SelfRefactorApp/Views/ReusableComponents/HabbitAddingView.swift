@@ -1,7 +1,13 @@
+//
+//  HabbitAddingView.swift
+//  SelfRefactorApp
+//
+//  Created by REGC on 03/03/2025.
+//
 
 import SwiftUI
 
-struct GoalsPage: View {
+struct HabbitAddingView: View {
     
     var  isDataAvailable = false
     
@@ -11,12 +17,12 @@ struct GoalsPage: View {
                 Text("sfdasf")
             }
             else {
-                Text("no goals yet")
+                Text("no habbit yet")
             }
         }
     }
 }
 
 #Preview {
-    GoalsPage()
+    HabbitAddingView()
 }

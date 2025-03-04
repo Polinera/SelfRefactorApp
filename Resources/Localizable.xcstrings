@@ -1,0 +1,84 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Goals" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cele"
+          }
+        }
+      }
+    },
+    "Habbits" : {
+
+    },
+    "Habits" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nawyki"
+          }
+        }
+      }
+    },
+    "History" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historia"
+          }
+        }
+      }
+    },
+    "Home" : {
+
+    },
+    "Key" : {
+      "extractionState" : "manual"
+    },
+    "Mood dairy" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dziennik nastroju"
+          }
+        }
+      }
+    },
+    "no goals yet" : {
+
+    },
+    "no habbit yet" : {
+
+    },
+    "no habit yet" : {
+
+    },
+    "Reflection" : {
+
+    },
+    "sfdasf" : {
+
+    },
+    "thought journal" : {
+
+    },
+    "Top emotions" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najczęstszy nastrój"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
