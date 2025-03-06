@@ -21,6 +21,7 @@ struct ReflectionView: View {
                         .overlay{
                             NavigationLink(destination: GoalsPage()) {
                                 Text("Goals")
+                                    .foregroundColor(.black)
                                     .font(.headline)
                                     .padding()
                             }
@@ -32,6 +33,7 @@ struct ReflectionView: View {
                                 .overlay{
                                     NavigationLink(destination: HabbitsPage()) {
                                         Text("Habbits")
+                                            .foregroundColor(.black)
                                             .font(.headline)
                                             .padding()
                                     }

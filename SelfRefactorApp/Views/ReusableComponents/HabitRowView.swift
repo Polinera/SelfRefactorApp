@@ -28,7 +28,7 @@ struct HabitRowView: View {
         HStack{
             RoundedRectangle(cornerRadius: 20)
                 .fill(habit.isDone ? doneColor :secondaryColor)
-                .frame(width: 200, height: 100)
+                .frame(width: 170, height: 100)
                 .padding()
                 .overlay(
                     VStack {

@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Add New" : {
+
+    },
     "Goals" : {
       "localizations" : {
         "pl" : {
@@ -54,9 +57,6 @@
     "no goals yet" : {
 
     },
-    "no habbit yet" : {
-
-    },
     "no habit yet" : {
 
     },
@@ -64,6 +64,9 @@
 
     },
     "sfdasf" : {
+
+    },
+    "Statistic" : {
 
     },
     "thought journal" : {

@@ -8,52 +8,33 @@
 import SwiftUI
 
 struct HabitPagePartView: View {
-        @StateObject var habitManager = HabitManager()
-        
-        var body: some View {
-            NavigationView {
-                GeometryReader { geometry in
-                    if geometry.size.width > geometry.size.height {
-
-                        VStack(spacing: 16) {
-                            
-                                
-                            ScrollView(.vertical, showsIndicators: false) {
-                                LazyVStack(spacing: 16) {
-                                    ForEach(habitManager.habits) { habit in
-                                        HabitRowView(habit: habit)
-                                            .onTapGesture {
-                                                habitManager.toggleHabit(habit)
-                                            }
-                                    }
+    @StateObject var habitManager = HabitManager()
+    
+    var body: some View {
+        NavigationView {
+            GeometryReader { geometry in
+                let isLandscape = geometry.size.width > geometry.size.height
+                
+                let columnCount = isLandscape ? 4 : 2
+                
+                let columns = Array(repeating: GridItem(.flexible(), spacing: 16), count: columnCount)
+                
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 16) {
+                        ForEach(habitManager.habits) { habit in
+                            HabitRowView(habit: habit)
+                                .onTapGesture {
+                                    habitManager.toggleHabit(habit)
                                 }
-                                .frame(maxWidth: .infinity, alignment: .center)
-                            }
-                            .padding(.horizontal)
                         }
-                        .padding()
-                    } else {
-                        VStack {
-                            
-                            
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHStack(spacing: 16) {
-                                    ForEach(habitManager.habits) { habit in
-                                        HabitRowView(habit: habit)
-                                            .onTapGesture {
-                                                habitManager.toggleHabit(habit)
-                                            }
-                                    }
-                                }
-                                .padding(.horizontal)
-                            }
-                        }
-                        .padding()
                     }
+                    .padding(.horizontal)
                 }
+                .padding()
             }
         }
     }
+}
 
 #Preview {
     HabitPagePartView()
