@@ -7,7 +7,7 @@ struct HabitMainView: View {
         NavigationView {
             VStack {
                 HabitPagePartView()
-                Text("Statistic")
+                HabitStatistic()
                 Spacer()
                 Spacer()
                 Button(action: {

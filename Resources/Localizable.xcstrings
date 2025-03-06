@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "- %@" : {
+
+    },
+    "\"%@\"" : {
+
+    },
     "Add New" : {
 
     },
@@ -57,7 +63,7 @@
     "no goals yet" : {
 
     },
-    "no habit yet" : {
+    "No quote available" : {
 
     },
     "Reflection" : {

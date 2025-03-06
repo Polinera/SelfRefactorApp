@@ -31,7 +31,7 @@ struct ReflectionView: View {
                                 .frame(height: 100)
                                 .padding()
                                 .overlay{
-                                    NavigationLink(destination: HabbitsPage()) {
+                                    NavigationLink(destination: HabitMainView()) {
                                         Text("Habbits")
                                             .foregroundColor(.black)
                                             .font(.headline)

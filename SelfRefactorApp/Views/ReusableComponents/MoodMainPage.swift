@@ -20,9 +20,12 @@ struct MoodMainPage: View {
                 MainPageEmojiView(rating: 20, total: 100, emoji: "😀")
                 MainPageEmojiView(rating: 40, total: 100, emoji: "😜")
                 MainPageEmojiView(rating: 75, total: 100, emoji: "🤩")
+                
             }
+        
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+       
     }
 }
 

@@ -1,27 +1,35 @@
-//
-//  DailyQuotesModel.swift
-//  SelfRefactorApp
-//
-//  Created by REGC on 24/02/2025.
-//
 
 import Foundation
 
-class DailyQuotesModel:ObservableObject {
-    @Published var currentQuote: String = ""
+class DailyQuotesModel: ObservableObject {
+    @Published var currentQuote: QuoteModel?
+    @Published var allQuotes: [QuoteModel] = []
     
-    private let allQuotes: [String] = [
-        "fdsfsddfsd",
-        "aasaaaaaa",
-        "bbbbbbbbb",
-        "ccccccccc"
-    ]
-    
-    init(){
+    init() {
+        loadQuotes()
         updateQuote()
     }
+  
+    func loadQuotes() {
+        guard let url = Bundle.main.url(forResource: "quotes", withExtension: "json") else {
+            print("Failed to locate quotes.json in bundle.")
+            return
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let quotes = try JSONDecoder().decode([QuoteModel].self, from: data)
+            self.allQuotes = quotes
+        } catch {
+            print("Error loading quotes: \(error)")
+        }
+    }
     
-    func updateQuote(){
-        currentQuote = allQuotes.randomElement() ?? ""
+    func updateQuote() {
+        if let randomQuote = allQuotes.randomElement() {
+            currentQuote = randomQuote
+        } else {
+            currentQuote = nil
+        }
     }
 }

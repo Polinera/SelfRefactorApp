@@ -1,8 +1,8 @@
-//
-//  QuoteModel.swift
-//  SelfRefactorApp
-//
-//  Created by REGC on 06/03/2025.
-//
 
 import Foundation
+
+struct QuoteModel : Codable, Identifiable {
+    let id: UUID = UUID ()
+    let quote : String
+    let author : String
+}

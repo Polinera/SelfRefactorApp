@@ -10,12 +10,11 @@ struct HomePage: View {
                 if geometry.size.width > geometry.size.height {
                     HStack(spacing: 16) {
                         VStack {
+                            Spacer()
                             QuoteView()
                             MoodMainPage()
-            
                         }
                         .frame(width: geometry.size.width * 0.5)
-                        
                         VStack {
                             HabitsView()
                         }
@@ -25,9 +24,7 @@ struct HomePage: View {
                 } else {
                     VStack {
                         Spacer()
-                        
                         QuoteView()
-                        
                         MoodMainPage()
                         HabitsView()
                         
