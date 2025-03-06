@@ -1,9 +1,3 @@
-//
-//  Habit.swift
-//  SelfRefactorApp
-//
-//  Created by REGC on 25/02/2025.
-//
 
 import SwiftUI
 

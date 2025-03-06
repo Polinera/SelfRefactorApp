@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Marie Curie",
+        "description": "Marie Skłodowska Curie was a pioneering scientist whose work transformed our understanding of radioactivity and laid the groundwork for modern physics and chemistry. Born in Warsaw in 1867, she overcame significant social and educational barriers to become one of the most influential scientists of her time.",
+        "image": "mariecurie"
+    },
+    {
+        "name": "Albert Einstein",
+        "description": "Albert Einstein was a theoretical physicist best known for developing the theory of relativity, which revolutionized our understanding of space, time, and gravity. His groundbreaking work has had a lasting impact on science and technology.",
+        "image": "einstein"
+    },
+    {
+        "name": "Martin Luther King Jr.",
+        "description": "Martin Luther King Jr. was a visionary civil rights leader who championed nonviolent resistance to combat racial injustice in the United States. His powerful speeches and unwavering commitment to equality continue to inspire movements for justice around the world.",
+        "image": "mlk"
+    },
+    {
+        "name": "Nelson Mandela",
+        "description": "Nelson Mandela was an anti-apartheid revolutionary and the first Black president of South Africa. His dedication to reconciliation, social justice, and human rights made him a global symbol of resilience and peace.",
+        "image": "mandela"
+    },
+    {
+        "name": "Malala Yousafzai",
+        "description": "Malala Yousafzai is an education activist and the youngest Nobel Prize laureate. After surviving a targeted attack, she has become a global advocate for girls' education and human rights, inspiring millions with her courage and determination.",
+        "image": "malala"
+    }
+]

@@ -2,10 +2,8 @@
 import SwiftUI
 
 struct HomePage: View {
-    @Environment(\.colorScheme) var colorScheme
     @StateObject var quotesModel = DailyQuotesModel()
-    @StateObject var modelHabit = MainPageHabitsModel()
-    
+
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
@@ -13,13 +11,13 @@ struct HomePage: View {
                     HStack(spacing: 16) {
                         VStack {
                             QuoteView()
-                            
                             MoodMainPage()
+            
                         }
                         .frame(width: geometry.size.width * 0.5)
                         
                         VStack {
-                            HabitsMainPageView()
+                            HabitsView()
                         }
                         .frame(width: geometry.size.width * 0.5)
                     }
@@ -30,9 +28,8 @@ struct HomePage: View {
                         
                         QuoteView()
                         
-                        HabitsMainPageView()
-                        
                         MoodMainPage()
+                        HabitsView()
                         
                         Spacer()
                     }

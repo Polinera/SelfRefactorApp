@@ -10,11 +10,8 @@ import SwiftUI
 struct PersonRowView: View {
     @Environment(\.colorScheme) var colorScheme
     
-
-    
     let person: Person
   
-    
     var body: some View {
         HStack{
             RoundedRectangle(cornerRadius: 20)
@@ -26,6 +23,8 @@ struct PersonRowView: View {
                         Image(person.image)
                             .resizable()
                             .frame(width: 40, height: 60)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                            .shadow(radius: 10)
                         Text(person.name)
                     }
                 )

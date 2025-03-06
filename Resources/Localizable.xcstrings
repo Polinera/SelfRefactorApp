@@ -41,7 +41,7 @@
     "Key" : {
       "extractionState" : "manual"
     },
-    "Mood dairy" : {
+    "Mood diary" : {
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -68,16 +68,6 @@
     },
     "thought journal" : {
 
-    },
-    "Top emotions" : {
-      "localizations" : {
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Najczęstszy nastrój"
-          }
-        }
-      }
     }
   },
   "version" : "1.0"

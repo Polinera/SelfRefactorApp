@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Person:Identifiable {
+struct Person: Codable, Identifiable {
     let id: UUID = UUID()
     let name: String
     let description: String

@@ -2,18 +2,16 @@
 import SwiftUI
 
 struct MainPageEmojiView: View {
-    let rating: Double  // e.g., 50
-       let total: Double   // e.g., 100
-       let emoji: String   // The emoji you want to display in the center
-       
-       // Compute a normalized value between 0 and 1.
+    let rating: Double
+       let total: Double
+       let emoji: String
+    
        private var normalizedRating: Double {
            rating / total
        }
        
        var body: some View {
            ZStack {
-               // Background circle (full circle, light gray)
                Circle()
                    .stroke(lineWidth: 10)
                    .opacity(0.3)
@@ -36,9 +34,7 @@ struct MainPageEmojiView: View {
    }
 
    struct ContentView: View {
-       var body: some View {
-           // For example, display a circular gauge with 50% rating and a happy emoji
-           MainPageEmojiView(rating: 50, total: 100, emoji: "😀")
+       var body: some View { MainPageEmojiView(rating: 50, total: 100, emoji: "😀")
        }
    }
 
