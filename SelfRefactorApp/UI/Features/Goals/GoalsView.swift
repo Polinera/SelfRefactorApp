@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct GoalsPage: View {
+struct GoalsView: View {
     
     var  isDataAvailable = false
     
@@ -18,5 +18,5 @@ struct GoalsPage: View {
 }
 
 #Preview {
-    GoalsPage()
+    GoalsView()
 }

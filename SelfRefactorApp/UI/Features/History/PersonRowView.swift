@@ -1,9 +1,3 @@
-//
-//  PersonRowView.swift
-//  SelfRefactorApp
-//
-//  Created by REGC on 24/02/2025.
-//
 
 import SwiftUI
 

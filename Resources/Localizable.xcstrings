@@ -11,6 +11,7 @@
 
     },
     "Goals" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -19,9 +20,6 @@
           }
         }
       }
-    },
-    "Habbits" : {
-
     },
     "Habits" : {
       "extractionState" : "manual",
@@ -75,7 +73,7 @@
     "Statistic" : {
 
     },
-    "thought journal" : {
+    "Thought Journal" : {
 
     }
   },

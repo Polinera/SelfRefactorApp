@@ -1,6 +1,6 @@
 import Foundation
 
-class PeopleModel: ObservableObject {
+class PeopleViewModel: ObservableObject {
     @Published var allPeople: [Person] = []
     @Published var searchText: String = ""
 

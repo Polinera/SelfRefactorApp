@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct DetailedPersonPage: View {
+struct DetailedPersonView: View {
     let person: Person
     
     var body: some View {

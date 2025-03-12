@@ -1,7 +1,7 @@
 
 import Foundation
 
-class DailyQuotesModel: ObservableObject {
+class DailyQuotesViewModel: ObservableObject {
     @Published var currentQuote: QuoteModel?
     @Published var allQuotes: [QuoteModel] = []
     

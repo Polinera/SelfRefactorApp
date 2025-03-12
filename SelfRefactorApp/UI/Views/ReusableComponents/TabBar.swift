@@ -1,9 +1,3 @@
-//
-//  TabBar.swift
-//  SelfRefactorApp
-//
-//  Created by REGC on 21/02/2025.
-//
 
 import SwiftUI
 
@@ -22,7 +16,7 @@ struct TabBar: View {
                     Text("Reflection")
                 }
             
-            HistoryPage()
+            HistoryView()
                 .tabItem{
                     Image(systemName: "a.book.closed.fill")
                     Text("History")

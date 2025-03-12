@@ -1,9 +1,3 @@
-//
-//  MoodMainPage.swift
-//  SelfRefactorApp
-//
-//  Created by REGC on 04/03/2025.
-//
 
 import SwiftUI
 
