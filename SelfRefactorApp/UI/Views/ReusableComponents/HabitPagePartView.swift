@@ -27,7 +27,7 @@ struct HabitPagePartView: View {
             .onRotate { newOrientation in
                 orientation = newOrientation
             }
-            .navigationTitle("Habits")
+
         }
     }
 }

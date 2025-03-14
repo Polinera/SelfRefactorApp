@@ -12,7 +12,7 @@ struct HabbitsPage: View {
                 }
         }
     }
-
+//todo ask is it better to create viewBuilder or just if in View? 
     @ViewBuilder
     private var layout: some View {
         if orientation.isLandscape {
