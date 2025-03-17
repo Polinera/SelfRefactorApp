@@ -11,8 +11,7 @@ struct HabitMainView: View {
                     .font(.title2)
                 Spacer()
                 Spacer()
-                Button(action: {
-                }) {
+                NavigationLink(destination: AddHabitView()) {
                     Text("Add New")
                         .foregroundColor(.black)
                         .padding(40)
@@ -27,5 +26,3 @@ struct HabitMainView: View {
     }
 }
 
-#Preview {
-    HabitMainView()}

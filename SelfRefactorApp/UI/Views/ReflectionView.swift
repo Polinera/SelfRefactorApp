@@ -52,6 +52,7 @@ private struct ThoughtJournalCard: View {
     }
 }
 
+
 #Preview {
     ReflectionView()
 }
