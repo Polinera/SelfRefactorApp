@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct AddHabitView: View {
-    @State private var userInput: String = ""
+    @Binding var userInput: String
     
     var body: some View {
         Text("add your own habit")
@@ -15,4 +15,6 @@ struct AddHabitView: View {
     }
 }
 
-//todo check how to do preview with some params
+#Preview {
+    AddHabitView(userInput: .constant("dfsf"))
+}

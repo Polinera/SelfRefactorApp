@@ -1,41 +1,66 @@
 import SwiftUI
 
 struct ReflectionView: View {
+    @State var name = ""
+    @State var path = NavigationPath()
     var body: some View {
-        NavigationView {
+        NavigationStack (path: $path){
             ScrollView {
                 VStack(spacing: 16) {
-                    topNavigationLinks
+                    HStack{
+                        NavigationCard(title: "Manage goals")
+                                               .onTapGesture {
+                                                   path.append(ReflectionRoute.goal)
+                                               }
+                        NavigationCard(title: "Your mood")
+                                               .onTapGesture {
+                                                   path.append(ReflectionRoute.mood)
+                                               }
+                        NavigationCard(title: "Add habit")
+                                               .onTapGesture {
+                                                   path.append(ReflectionRoute.addHabit)
+                                               }
+                    }
+                    
                     ThoughtJournalCard()
+                        .onTapGesture {path.append(ReflectionRoute.journal)
+                        }
+                    
                 }
+                
                 .padding()
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(for: ReflectionRoute.self) { route in
+                switch route {
+                case .addHabit: AddHabitView(userInput: $name)
+                case .goal:
+                      GoalView()
+                case .mood:
+                    MoodView()
+                case .journal:
+                    JournalView()
+                }
+            }
         }
-    }
-
-    private var topNavigationLinks: some View {
-        HStack(spacing: 16) {
-            NavigationCard(title: "Goals", destination: GoalsView())
-            NavigationCard(title: "Habits", destination: HabitMainView())
-        }
+        .environment(\.navigationPath, $path)
     }
 }
 
-private struct NavigationCard<Destination: View>: View {
+private struct NavigationCard: View {
     let title: String
-    let destination: Destination
-
+    
     var body: some View {
-        NavigationLink(destination: destination) {
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.primaryColor)
-                .frame(height: 100)
-                .overlay(
-                    Text(title)
-                        .foregroundColor(.black)
-                        .font(.headline)
-                )
-        }
+        
+        RoundedRectangle(cornerRadius: 20)
+            .fill(Color.primaryColor)
+            .frame(height: 100)
+            .overlay(
+                Text(title)
+                    .foregroundColor(.black)
+                    .font(.headline)
+            )
+        
     }
 }
 
@@ -51,6 +76,7 @@ private struct ThoughtJournalCard: View {
             )
     }
 }
+
 
 
 #Preview {

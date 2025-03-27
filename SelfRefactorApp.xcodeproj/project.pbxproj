@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		881878BA2D95732A003FAFFD /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 881878B92D957320003FAFFD /* README.txt */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		888E38332D6881FD00006944 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		881878B92D957320003FAFFD /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		888E38222D6881FB00006944 /* SelfRefactorApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelfRefactorApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		888E38322D6881FD00006944 /* SelfRefactorAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfRefactorAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		888E383C2D6881FE00006944 /* SelfRefactorAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfRefactorAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +90,7 @@
 				888E38352D6881FD00006944 /* SelfRefactorAppTests */,
 				888E383F2D6881FE00006944 /* SelfRefactorAppUITests */,
 				888E38232D6881FB00006944 /* Products */,
+				881878B92D957320003FAFFD /* README.txt */,
 			);
 			sourceTree = "<group>";
 		};
@@ -220,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				881878BA2D95732A003FAFFD /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

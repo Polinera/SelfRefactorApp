@@ -16,10 +16,10 @@ struct TabBar: View {
                     Text("Reflection")
                 }
             
-            HistoryView()
+            InspiringView()
                 .tabItem{
                     Image(systemName: "a.book.closed.fill")
-                    Text("History")
+                    Text("Inspiring")
                 }
         }
         .tabViewStyle(.sidebarAdaptable)

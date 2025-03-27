@@ -20,9 +20,7 @@ struct HomePage: View {
             portraitLayout
         }
     }
-    
-    // todo: ask orientation.isLandscape ? landscapeLayout : portraitLayout wont work is there any other way to shorten code?
-    
+
     private var landscapeLayout: some View {
         HStack(spacing: 16) {
             VStack{

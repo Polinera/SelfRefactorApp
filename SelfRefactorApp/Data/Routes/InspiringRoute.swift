@@ -1,7 +1,6 @@
-//
-//  InspiringRoute.swift
-//  SelfRefactorApp
-//
-//  Created by REGC on 27/03/2025.
-//
-
+enum InspiringRoute:Identifiable, Hashable {
+    case addHistory
+    var id : String {
+        String(reflecting:self)
+    }
+}

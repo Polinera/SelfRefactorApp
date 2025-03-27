@@ -13,7 +13,6 @@ struct HabitPagePartView: View {
     }
     
     var body: some View {
-        NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(habitManager.habits) { habit in
@@ -27,9 +26,7 @@ struct HabitPagePartView: View {
             .onRotate { newOrientation in
                 orientation = newOrientation
             }
-
         }
-    }
 }
 
 #Preview {

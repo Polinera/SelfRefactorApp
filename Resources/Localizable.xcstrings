@@ -48,7 +48,20 @@
         }
       }
     },
+    "Hello, Goal!" : {
+
+    },
+    "Hello, History and other inspiring things will be here :)" : {
+
+    },
+    "Hello, Mood" : {
+
+    },
+    "Hello,Journal" : {
+
+    },
     "History" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pl" : {
           "stringUnit" : {
@@ -59,6 +72,9 @@
       }
     },
     "Home" : {
+
+    },
+    "Inspiring" : {
 
     },
     "Key" : {
