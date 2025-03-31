@@ -2,9 +2,11 @@ import SwiftUI
 
 struct HomePage: View {
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    @State var name = ""
+    @State var path = NavigationPath()
     
     var body: some View {
-        NavigationView {
+        NavigationStack (path: $path){
             layout
                 .onRotate { newOrientation in
                     orientation = newOrientation
@@ -23,15 +25,18 @@ struct HomePage: View {
 
     private var landscapeLayout: some View {
         HStack(spacing: 16) {
-            VStack{
+            VStack(spacing: 16){
                 Spacer()
                 QuoteView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
                 MoodMainPage()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .frame(maxWidth: .infinity)
-            
+
             HabitsView()
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .padding()
     }

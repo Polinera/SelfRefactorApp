@@ -3,9 +3,11 @@ import SwiftUI
 struct HabbitsPage: View {
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     @StateObject private var habitManager = HabitManager()
-
+    @State var name = ""
+    @State var path = NavigationPath()
+    
     var body: some View {
-        NavigationView {
+        NavigationStack (path: $path){
             layout
                 .onRotate { newOrientation in
                     orientation = newOrientation
@@ -34,6 +36,7 @@ struct HabbitsPage: View {
                             .onTapGesture {
                                 habitManager.toggleHabit(habit)
                             }
+                            .frame(width: 200)
                     }
                 }
                 .padding(.horizontal)
