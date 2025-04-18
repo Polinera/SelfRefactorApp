@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct QuoteView: View {
-    @StateObject private var quotesModel = DailyQuotesViewModel()
+    @StateObject private var viewModel = DailyQuotesViewModel(quoteLoader: BundleQuoteLoader())
 
     var body: some View {
         VStack {
-            if let quote = quotesModel.currentQuote {
+            if let quote = viewModel.currentQuote {
                 QuoteCard(quote: quote)
                     .padding()
             } else {

@@ -2,7 +2,6 @@ import SwiftUI
 
 struct HomePage: View {
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
-    @State var name = ""
     @State var path = NavigationPath()
     
     var body: some View {

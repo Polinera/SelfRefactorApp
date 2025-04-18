@@ -1,35 +1,63 @@
-
 import Foundation
 
-class DailyQuotesViewModel: ObservableObject {
+enum QuoteError: Error {
+    case fileNotFound
+    case decodingError(Error)
+    case emptyQuotesList
+}
+
+protocol QuoteProtocol {
+    func loadQuotes() -> Result<[QuoteModel], QuoteError>
+}
+
+final class DailyQuotesViewModel: ObservableObject {
     @Published var currentQuote: QuoteModel?
     @Published var allQuotes: [QuoteModel] = []
+
+    private var lastQuote: QuoteModel?
     
-    init() {
-        loadQuotes()
-        updateQuote()
-    }
-  
-    func loadQuotes() {
-        guard let url = Bundle.main.url(forResource: "quotes", withExtension: "json") else {
-            print("Failed to locate quotes.json in bundle.")
-            return
-        }
+    private let quoteLoader: QuoteProtocol
+
+    init(quoteLoader: QuoteProtocol) {
+        self.quoteLoader = quoteLoader
         
-        do {
-            let data = try Data(contentsOf: url)
-            let quotes = try JSONDecoder().decode([QuoteModel].self, from: data)
+        switch quoteLoader.loadQuotes() {
+        case .success(let quotes):
             self.allQuotes = quotes
-        } catch {
+            pickRandomQuote()
+        case .failure(let error):
             print("Error loading quotes: \(error)")
         }
     }
-    
-    func updateQuote() {
-        if let randomQuote = allQuotes.randomElement() {
-            currentQuote = randomQuote
-        } else {
+
+    func pickRandomQuote() {
+        guard !allQuotes.isEmpty else {
             currentQuote = nil
+            return
+        }
+
+        var newQuote: QuoteModel?
+        repeat {
+            newQuote = allQuotes.randomElement()
+        } while newQuote == lastQuote && allQuotes.count > 1
+
+        lastQuote = newQuote
+        currentQuote = newQuote
+    }
+}
+
+class BundleQuoteLoader: QuoteProtocol {
+    func loadQuotes() -> Result<[QuoteModel], QuoteError> {
+        guard let url = Bundle.main.url(forResource: "quotes", withExtension: "json") else {
+            return .failure(.fileNotFound)
+        }
+
+        do {
+            let data = try Data(contentsOf: url)
+            let quotes = try JSONDecoder().decode([QuoteModel].self, from: data)
+            return .success(quotes)
+        } catch {
+            return .failure(.decodingError(error))
         }
     }
 }

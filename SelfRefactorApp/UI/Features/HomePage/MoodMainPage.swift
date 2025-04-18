@@ -11,15 +11,12 @@ struct MoodMainPage: View {
             Text(text)
             
             HStack {
-                MainPageEmojiView(rating: 20, total: 100, emoji: "😀")
-                MainPageEmojiView(rating: 40, total: 100, emoji: "😜")
-                MainPageEmojiView(rating: 75, total: 100, emoji: "🤩")
-                
+                MainPageEmojiView(rating: 90, total: 100, emoji: "😎", animate: true)
+                MainPageEmojiView(rating: 45, total: 100, emoji: "😜", animate: true)
+                MainPageEmojiView(rating: 75, total: 100, emoji: "🤩", animate: true)
             }
-        
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-       
     }
 }
 
