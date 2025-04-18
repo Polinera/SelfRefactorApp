@@ -17,10 +17,10 @@
         }
       }
     },
-    "Add New" : {
+    "add your own habit" : {
 
     },
-    "add your own habit" : {
+    "add_new" : {
 
     },
     "Enter your habit" : {
@@ -51,9 +51,6 @@
     "Hello, Goal!" : {
 
     },
-    "Hello, History and other inspiring things will be here :)" : {
-
-    },
     "Hello, Mood" : {
 
     },
@@ -70,6 +67,9 @@
           }
         }
       }
+    },
+    "History is one click away :)" : {
+
     },
     "Home" : {
 
@@ -94,6 +94,9 @@
 
     },
     "No quote available" : {
+
+    },
+    "Other inspiring things will be here" : {
 
     },
     "Reflection" : {
