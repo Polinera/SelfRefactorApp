@@ -35,7 +35,7 @@ struct ReflectionView: View {
                 switch route {
                 case .addHabit: AddHabitView(userInput: $name)
                 case .goal:
-                      GoalView()
+                      GoalsView()
                 case .mood:
                     MoodView()
                 case .journal:

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct GoalModel: Identifiable, Codable {
+struct Goal: Identifiable, Codable, Equatable {
     let id = UUID()
     var name : String
     var description : String

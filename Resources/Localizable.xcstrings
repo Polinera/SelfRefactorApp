@@ -17,6 +17,9 @@
         }
       }
     },
+    "%lld percent" : {
+
+    },
     "add your own habit" : {
 
     },
@@ -47,9 +50,6 @@
           }
         }
       }
-    },
-    "Hello, Goal!" : {
-
     },
     "Hello, Mood" : {
 
@@ -90,7 +90,10 @@
         }
       }
     },
-    "no goals yet" : {
+    "Mood rating" : {
+
+    },
+    "No goals yet" : {
 
     },
     "No quote available" : {
@@ -100,9 +103,6 @@
 
     },
     "Reflection" : {
-
-    },
-    "sfdasf" : {
 
     },
     "Statistic" : {

@@ -3,7 +3,6 @@ import SwiftUI
 
 struct HistoryView: View {
     @StateObject var model = PeopleViewModel()
-
    
     var column = [
         GridItem(.flexible()),
