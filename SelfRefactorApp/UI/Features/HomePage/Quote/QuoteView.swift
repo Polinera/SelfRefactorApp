@@ -17,26 +17,23 @@ struct QuoteView: View {
     }
 }
 
-private struct QuoteCard: View {
+struct QuoteCard: View {
     let quote: QuoteModel
 
     var body: some View {
-        RoundedRectangle(cornerRadius: 20)
-            .fill(Color.primaryColor)
-            .frame(height: 100)
-            .overlay(
-                VStack(spacing: 4) {
-                    Text("\"\(quote.quote)\"")
-                        .font(.headline)
-                        .multilineTextAlignment(.center)
-                        .fixedSize(horizontal: false, vertical: true)
+        VStack(alignment: .center, spacing: 8) {
+            Text("“\(quote.quote)”")
+                .font(.body)
+                .multilineTextAlignment(.center)
 
-                    Text("- \(quote.author)")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-                .padding()
-            )
+            Text("- \(quote.author)")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+        }
+        .padding()
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .shadow(radius: 2)
     }
 }
 

@@ -2,23 +2,46 @@
 import SwiftUI
 
 struct MoodMainPage: View {
-    let offset = CGSize(width: 0, height: 100)
-    let text = "Top emotions"
-    
     var body: some View {
-        VStack {
-            Text(String(localized: "Mood diary"))
-            Text(text)
-            
-            HStack {
-                MainPageEmojiView(rating: 90, total: 100, emoji: "😎", animate: true)
-                MainPageEmojiView(rating: 45, total: 100, emoji: "😜", animate: true)
-                MainPageEmojiView(rating: 75, total: 100, emoji: "🤩", animate: true)
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Mood diary")
+                .font(.title2)
+                .bold()
+
+            Text("Top emotions")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+
+            HStack(spacing: 16) {
+                EmotionCardView(emoji: "😎", percentage: 90)
+                EmotionCardView(emoji: "😜", percentage: 45)
+                EmotionCardView(emoji: "🤩", percentage: 75)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding()
     }
 }
+
+struct EmotionCardView: View {
+    let emoji: String
+    let percentage: Int
+
+    var body: some View {
+        VStack(spacing: 8) {
+            Text(emoji)
+                .font(.system(size: 40))
+
+            Text("\(percentage)%")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+        }
+        .frame(width: 80, height: 100)
+        .background(Color(.systemGray6))
+        .cornerRadius(12)
+        .shadow(color: .black.opacity(0.05), radius: 2, x: 0, y: 1)
+    }
+}
+
 
 #Preview {
     MoodMainPage()

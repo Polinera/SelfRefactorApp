@@ -4,7 +4,7 @@
     "- %@" : {
 
     },
-    "\"%@\"" : {
+    "“%@”" : {
 
     },
     "%@%@" : {
@@ -20,6 +20,9 @@
     "%lld percent" : {
 
     },
+    "%lld%%" : {
+
+    },
     "➕ Add habit" : {
 
     },
@@ -33,6 +36,9 @@
 
     },
     "add_new" : {
+
+    },
+    "Done" : {
 
     },
     "Enter your habit" : {
@@ -123,10 +129,16 @@
     "Thought Journal" : {
 
     },
+    "Top emotions" : {
+
+    },
     "Wystapil blad" : {
 
     },
     "You entered: %@" : {
+
+    },
+    "Your Habits" : {
 
     }
   },

@@ -6,23 +6,19 @@ struct TabBar: View {
         TabView {
             HomePage()
                 .tabItem {
-                    Image(systemName: "house")
-                    Text("Home")
+                    Label("Home", systemImage: "house")
                 }
             
             ReflectionView()
                 .tabItem {
-                    Image(systemName: "square.and.pencil")
-                    Text("Reflection")
+                    Label("Reflection", systemImage: "square.and.pencil")
                 }
             
             InspiringView()
                 .tabItem {
-                    Image(systemName: "a.book.closed.fill")
-                    Text("Inspiring")
+                    Label("Inspiring", systemImage: "quote.bubble")
                 }
         }
-//        .tabViewStyle(.sidebarAdaptable)
     }
 }
 
