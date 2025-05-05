@@ -2,27 +2,22 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @StateObject var model = PeopleViewModel()
-   
-    var column = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
+    @Environment(\.navigationPath) var navigationPath
     
+    @StateObject var viewModel = HistoryViewModel()
+
     var body: some View {
-        NavigationView {
-                    List {
-                        ForEach(model.allPeople) { person in
-                            NavigationLink(destination: DetailedPersonView(person: person)) {
-                                PersonRowView(person: person)
-                            }
-                        }
+        List {
+            ForEach(viewModel.allPeople) { person in
+                PersonRowView(person: person)
+                    .onTapGesture {
+                        navigationPath.wrappedValue.append(InspiringRoute.detailedPerson(person))
                     }
-                    .searchable(text: $model.searchText)
-                }
             }
         }
+        .searchable(text: $viewModel.searchText)
+    }
+}
 
 #Preview {
     HistoryView()

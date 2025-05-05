@@ -35,16 +35,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		886541CC2D76D6760096307B /* Resources */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		888E38242D6881FB00006944 /* SelfRefactorApp */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SelfRefactorApp;
-			sourceTree = "<group>";
-		};
 		888E38352D6881FD00006944 /* SelfRefactorAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SelfRefactorAppTests;
@@ -53,6 +43,16 @@
 		888E383F2D6881FE00006944 /* SelfRefactorAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SelfRefactorAppUITests;
+			sourceTree = "<group>";
+		};
+		E47894012DC88E9900578373 /* SelfRefactorApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SelfRefactorApp;
+			sourceTree = "<group>";
+		};
+		E47894352DC88EC200578373 /* Resources */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -85,8 +85,8 @@
 		888E38192D6881FB00006944 = {
 			isa = PBXGroup;
 			children = (
-				886541CC2D76D6760096307B /* Resources */,
-				888E38242D6881FB00006944 /* SelfRefactorApp */,
+				E47894352DC88EC200578373 /* Resources */,
+				E47894012DC88E9900578373 /* SelfRefactorApp */,
 				888E38352D6881FD00006944 /* SelfRefactorAppTests */,
 				888E383F2D6881FE00006944 /* SelfRefactorAppUITests */,
 				888E38232D6881FB00006944 /* Products */,
@@ -120,8 +120,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				886541CC2D76D6760096307B /* Resources */,
-				888E38242D6881FB00006944 /* SelfRefactorApp */,
+				E47894012DC88E9900578373 /* SelfRefactorApp */,
+				E47894352DC88EC200578373 /* Resources */,
 			);
 			name = SelfRefactorApp;
 			packageProductDependencies = (

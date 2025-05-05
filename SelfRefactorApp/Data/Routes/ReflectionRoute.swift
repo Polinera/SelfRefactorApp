@@ -8,7 +8,4 @@ enum ReflectionRoute: Identifiable, Hashable {
     var id : String {
         String( reflecting: self)
     }
-    
 }
-
-

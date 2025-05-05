@@ -5,7 +5,7 @@ struct HabbitsPage: View {
     @StateObject private var habitManager = HabitManager()
     @State var name = ""
     @State var path = NavigationPath()
-    
+
     var body: some View {
         NavigationStack (path: $path){
             layout
@@ -28,7 +28,7 @@ struct HabbitsPage: View {
         VStack(spacing: 16) {
             Text("Habits")
                 .font(.title)
-            
+
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(spacing: 16) {
                     ForEach(habitManager.habits) { habit in
@@ -44,7 +44,7 @@ struct HabbitsPage: View {
         }
         .padding()
     }
-    
+
     private var portraitLayout: some View {
         VStack(spacing: 16) {
             Text("Habits")
@@ -57,8 +57,8 @@ struct HabbitsPage: View {
                             .onTapGesture {
                                 habitManager.toggleHabit(habit)
                             }
-                           
-                        .frame(width: 200)
+
+                            .frame(width: 200)
                     }
                 }
                 .padding(.horizontal)

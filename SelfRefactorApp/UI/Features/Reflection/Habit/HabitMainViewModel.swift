@@ -22,6 +22,6 @@ final class HabitMainViewModel: ObservableObject {
     }
 
     func getHabits() {
-        // use manager
+        habits = manager.getHabits()
     }
 }

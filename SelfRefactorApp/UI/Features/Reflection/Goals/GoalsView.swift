@@ -2,70 +2,79 @@
 import SwiftUI
 
 struct GoalsView: View {
-    @StateObject private var manager = GoalManager()
-    @State private var isLoading = true
+    @StateObject private var viewModel = GoalsViewModel()
 
     var body: some View {
+        Group {
+            switch viewModel.state {
+            case .loading:
+                loadingStateView
+            case .loaded(let array):
+                makeLoadedStateView(for: array)
+            case .error:
+                Text("Wystapil blad")
+            }
+        }
+        .onAppear {
+            viewModel.getGoals()
+        }
+    }
+
+    private var loadingStateView: some View {
         VStack {
-            if isLoading {
-                // Placeholder z animacją
-                VStack {
-                    ForEach(0..<3) { _ in
-                        HStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.gray.opacity(0.3))
-                                .frame(width: 100, height: 20)
-                                .shimmering() // Animacja shimmering
-                            Spacer()
-                        }
-                        .padding(.horizontal)
-                    }
+            ForEach(0..<3) { _ in
+                HStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.gray.opacity(0.3))
+                        .frame(width: 100, height: 20)
+                        .shimmering()
+                    Spacer()
                 }
-                .padding()
-                .onAppear {
-                    // Symulacja ładowania celów (tu czekamy 2 sekundy)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        // Po załadowaniu danych, ustawiamy isLoading na false
-                        isLoading = false
-                    }
-                }
-            } else {
-                if manager.goals.isEmpty {
-                    Text("No goals yet")
-                        .foregroundColor(.gray)
-                        .italic()
-                } else {
-                    // Po zakończeniu ładowania, wyświetlamy prawdziwe dane
-                    List {
-                        ForEach(manager.goals) { goal in
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(goal.name).bold()
-                                    Text(goal.description)
-                                        .font(.subheadline)
-                                        .foregroundColor(.gray)
-                                }
-                                Spacer()
-                                Button(action: {
-                                    manager.toggleGoalCompletion(goal)
-                                }) {
-                                    Image(systemName: goal.isCompleted ? "checkmark.circle.fill" : "circle")
-                                        .foregroundColor(goal.isCompleted ? .green : .red)
-                                }
-                            }
-                            .padding()
-                        }
-                    }
-                }
+                .padding(.horizontal)
             }
         }
         .padding()
     }
-}
 
+    @ViewBuilder
+    private func makeLoadedStateView(for goals: [Goal]) -> some View {
+        if goals.isEmpty {
+            Text("No goals yet")
+                .foregroundColor(.gray)
+                .italic()
+        } else {
+            List {
+                ForEach(goals) { goal in
+                    makeListElement(for: goal)
+                }
+            }
+        }
+    }
+
+    private func makeListElement(for goal: Goal) -> some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(goal.name).bold()
+                Text(goal.description)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }
+            Spacer()
+
+            Image(systemName: goal.isCompleted ? "checkmark.circle.fill" : "circle")
+                .foregroundColor(goal.isCompleted ? .green : .red)
+                .onTapGesture {
+                    viewModel.toggleGoalCompletion(goal)
+                }
+        }
+        .padding()
+
+    }
+}
 extension View {
+    // TODO: Przeniesc jako view modifier
     func shimmering() -> some View {
-        self.overlay(
+        overlay(
             LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.white.opacity(0.6), Color.white.opacity(0.3)]), startPoint: .leading, endPoint: .trailing)
                 .mask(self)
                 .rotationEffect(.degrees(70))
@@ -75,18 +84,6 @@ extension View {
     }
 }
 
-class GoalManager: ObservableObject {
-    @Published var goals: [Goal] = [
-          Goal(name: "Read daily", description: "Read 20 pages of a book daily.", isCompleted: false),
-          Goal(name: "Run 2km", description: "Go for a 2km run every morning.", isCompleted: true)
-      ]
-      
-    func toggleGoalCompletion(_ goal: Goal) {
-        if let index = goals.firstIndex(where: { $0.id == goal.id }) {
-            goals[index].isCompleted.toggle()
-        }
-    }
-}
 
 #Preview {
     GoalsView()

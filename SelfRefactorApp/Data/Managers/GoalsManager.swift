@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 protocol GoalsManagerProtocol {
     func toggleGoal(_ goal: Goal)
     func resetGoals()
@@ -33,7 +31,7 @@ final class GoalsManager: GoalsManagerProtocol {
             print("Toggle failed: \(error)")
         }
     }
-
+    
     func resetGoals() {
         do {
             var goals = try repository.getGoals()

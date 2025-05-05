@@ -3,39 +3,45 @@ import SwiftUI
 struct ReflectionView: View {
     @State var name = ""
     @State var path = NavigationPath()
+
     var body: some View {
-        NavigationStack (path: $path){
-            ScrollView {
-                VStack(spacing: 16) {
-                    HStack{
-                        NavigationCard(title: "Manage goals")
-                                               .onTapGesture {
-                                                   path.append(ReflectionRoute.goal)
-                                               }
-                        NavigationCard(title: "Your mood")
-                                               .onTapGesture {
-                                                   path.append(ReflectionRoute.mood)
-                                               }
-                        NavigationCard(title: "Add habit")
-                                               .onTapGesture {
-                                                   path.append(ReflectionRoute.addHabit)
-                                               }
+        NavigationStack(path: $path) {
+            List {
+                Section(header: Text("Quick Actions")) {
+                    NavigationLink("🎯 Manage goals") {
+                        GoalsView()
                     }
-                    
-                    ThoughtJournalCard()
-                        .onTapGesture {path.append(ReflectionRoute.journal)
-                        }
-                    
+
+                    NavigationLink("🧠 Your mood") {
+                        MoodView()
+                    }
+
+                    Button("➕ Add habit") {
+                        path.append(ReflectionRoute.addHabit)
+                    }
+                    .foregroundColor(.accentColor)
                 }
-                
-                .padding()
+
+                Section {
+                    Button {
+                        path.append(ReflectionRoute.journal)
+                    } label: {
+                        HStack {
+                            Image(systemName: "book.closed")
+                            Text("Thought Journal")
+                        }
+                    }
+                }
             }
+            .listStyle(.insetGrouped)
+            .navigationTitle("Reflection")
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: ReflectionRoute.self) { route in
                 switch route {
-                case .addHabit: AddHabitView(userInput: $name)
+                case .addHabit:
+                    AddHabitView(userInput: $name)
                 case .goal:
-                      GoalsView()
+                    GoalsView()
                 case .mood:
                     MoodView()
                 case .journal:
@@ -43,15 +49,16 @@ struct ReflectionView: View {
                 }
             }
         }
-        .environment(\.navigationPath, $path)
     }
 }
 
+
+// TODO: - Skorzystaj z chatgpt / Claude AI zeby podyskutowac na temat redesignu aplikacji, on moze Ci przygotowac kod tez. Popros o uwzglednienie view modeli, zeby korzystal z MVVM
+
 private struct NavigationCard: View {
     let title: String
-    
+
     var body: some View {
-        
         RoundedRectangle(cornerRadius: 20)
             .fill(Color.primaryColor)
             .frame(height: 100)
@@ -60,7 +67,7 @@ private struct NavigationCard: View {
                     .foregroundColor(.black)
                     .font(.headline)
             )
-        
+
     }
 }
 

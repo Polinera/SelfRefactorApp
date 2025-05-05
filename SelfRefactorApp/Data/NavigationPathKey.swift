@@ -1,9 +1,9 @@
 import Foundation
 import SwiftUI
 
-extension EnvironmentValues{
+extension EnvironmentValues {
     private struct NavigationPathKey : EnvironmentKey{
-        static let defaultValue : Binding <NavigationPath> = .constant(.init())
+        static let defaultValue : Binding<NavigationPath> = .constant(.init())
     }
     
     var navigationPath : Binding <NavigationPath> {

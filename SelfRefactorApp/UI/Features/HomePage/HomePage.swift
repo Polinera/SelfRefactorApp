@@ -2,55 +2,46 @@ import SwiftUI
 
 struct HomePage: View {
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
-    @State var path = NavigationPath()
-    
+
     var body: some View {
-        NavigationStack (path: $path){
-            layout
-                .onRotate { newOrientation in
-                    orientation = newOrientation
+        NavigationStack {
+            Group {
+                if orientation.isLandscape {
+                    landscapeLayout
+                } else {
+                    portraitLayout
+                }
             }
-        }
-    }
-    
-    @ViewBuilder
-    private var layout: some View {
-        if orientation.isLandscape {
-            landscapeLayout
-        } else {
-            portraitLayout
+            .padding()
+            .navigationTitle("Home")
+            .onRotate { newOrientation in
+                orientation = newOrientation
+            }
         }
     }
 
     private var landscapeLayout: some View {
         HStack(spacing: 16) {
-            VStack(spacing: 16){
-                Spacer()
+            VStack(spacing: 16) {
                 QuoteView()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
                 MoodMainPage()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .frame(maxWidth: .infinity)
 
             HabitsView()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .frame(maxWidth: .infinity)
         }
-        .padding()
     }
-    
+
     private var portraitLayout: some View {
-        VStack{
-            Spacer()
+        VStack(spacing: 16) {
             QuoteView()
             MoodMainPage()
             HabitsView()
-            Spacer()
         }
-        .padding()
     }
 }
+
 
 #Preview {
     HomePage()

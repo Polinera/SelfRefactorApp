@@ -6,7 +6,7 @@ struct HabitMainView: View {
     @StateObject var viewModel = HabitMainViewModel()
 
     var body: some View {
-        ZStack (alignment: .bottomTrailing) {
+        ZStack(alignment: .bottomTrailing) {
             VStack {
                 HabitPagePartView(habits: viewModel.habits) { habit in
                     viewModel.toggle(habit: habit)
@@ -14,6 +14,9 @@ struct HabitMainView: View {
                 Text("Statistic")
                     .font(.title2)
                 Spacer()
+            }
+            .onAppear {
+                viewModel.getHabits()
             }
 
             Text("add_new")
@@ -25,8 +28,6 @@ struct HabitMainView: View {
                 .onTapGesture {
                     navigationPath.wrappedValue.append(ReflectionRoute.addHabit)
                 }
-
         }
-
     }
 }

@@ -17,12 +17,12 @@ struct TabBar: View {
                 }
             
             InspiringView()
-                .tabItem{
+                .tabItem {
                     Image(systemName: "a.book.closed.fill")
                     Text("Inspiring")
                 }
         }
-        .tabViewStyle(.sidebarAdaptable)
+//        .tabViewStyle(.sidebarAdaptable)
     }
 }
 

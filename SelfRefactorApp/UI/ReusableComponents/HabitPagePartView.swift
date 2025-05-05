@@ -4,6 +4,7 @@ struct HabitPagePartView: View {
 //    @StateObject var habitManager = HabitManager()
     var habits: [Habit]
     var onHabitTapped: ((Habit) -> Void)?
+
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
 
     private var isLandscape: Bool { orientation.isLandscape }

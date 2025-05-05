@@ -1,8 +1,10 @@
 import Foundation
 
-class PeopleViewModel: ObservableObject {
+final class HistoryViewModel: ObservableObject {
     @Published var allPeople: [Person] = []
+    
     @Published var searchText: String = ""
+    // TODO: Uzyj didSet na searchText i wywolaj funkcje filtrujaca
 
     init() {
         loadPeople()

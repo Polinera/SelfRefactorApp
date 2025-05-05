@@ -2,14 +2,14 @@ import Foundation
 
 class HabitManager: ObservableObject {
     @Published var habits: [Habit] = []
-    
+
     private let fileName = "habit.json"
-    
+
     init() {
         loadHabits()
         scheduleMidnightReset()
     }
-    
+
     private func fileURL() -> URL {
         let manager = FileManager.default
         let docs = manager.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -42,7 +42,7 @@ class HabitManager: ObservableObject {
                     DispatchQueue.main.async {
                         self.habits = decodedHabits
                     }
-                  
+
                     try data.write(to: url)
                     print("Loaded habits from bundle: \(decodedHabits)")
                 } catch {
@@ -70,27 +70,27 @@ class HabitManager: ObservableObject {
             print("Error saving habits: \(error)")
         }
     }
-    
+
     func toggleHabit(_ habit: Habit) {
         if let index = habits.firstIndex(where: { $0.id == habit.id }) {
             habits[index].isDone.toggle()
             saveHabits()
         }
     }
-    
+
     func resetHabits() {
         for index in habits.indices {
             habits[index].isDone = false
         }
         saveHabits()
     }
-    
+
     func scheduleMidnightReset() {
         let calendar = Calendar.current
         let now = Date()
         if let nextMidnight = calendar.nextDate(after: now,
-                                                 matching: DateComponents(hour: 0, minute: 0, second: 0),
-                                                 matchingPolicy: .nextTime) {
+                                                matching: DateComponents(hour: 0, minute: 0, second: 0),
+                                                matchingPolicy: .nextTime) {
             let interval = nextMidnight.timeIntervalSince(now)
             Timer.scheduledTimer(withTimeInterval: interval, repeats: false) { [weak self] _ in
                 self?.resetHabits()

@@ -2,9 +2,8 @@
 import SwiftUI
 
 struct InspiringView: View {
-    @State var name = ""
-    @State var path = NavigationPath()
-    
+    @State private var path = NavigationPath()
+
     var body: some View {
         NavigationStack (path: $path){
             VStack(spacing: 20) {
@@ -23,6 +22,8 @@ struct InspiringView: View {
                 switch route {
                 case .addHistory:
                     HistoryView()
+                case .detailedPerson(let person):
+                    DetailedPersonView(person: person)
                 }
             }
         }
