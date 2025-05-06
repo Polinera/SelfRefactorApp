@@ -1,9 +1,4 @@
-//
-//  HabitsManager.swift
-//  SelfRefactorApp
-//
-//  Created by Renata Garlicka on 17/04/2025.
-//
+
 
 protocol HabitsManagerProtocol {
     func toggleHabit(_ habit: Habit)

@@ -8,7 +8,7 @@ struct HistoryView: View {
 
     var body: some View {
         List {
-            ForEach(viewModel.allPeople) { person in
+            ForEach(viewModel.filteredPeople) { person in
                 PersonRowView(person: person)
                     .onTapGesture {
                         navigationPath.wrappedValue.append(InspiringRoute.detailedPerson(person))
