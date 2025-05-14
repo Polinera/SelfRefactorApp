@@ -31,7 +31,7 @@ struct QuoteCard: View {
                 .foregroundColor(.secondary)
         }
         .padding()
-        .background(.ultraThinMaterial)
+        .background(.myAccent)
         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         .shadow(radius: 2)
     }

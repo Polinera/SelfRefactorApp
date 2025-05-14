@@ -40,7 +40,7 @@ struct GoalsView: View {
     private func makeLoadedStateView(for goals: [Goal]) -> some View {
         if goals.isEmpty {
             Text("No goals yet")
-                .foregroundColor(.gray)
+                .foregroundColor(.secondary)
                 .italic()
         } else {
             List {
@@ -62,7 +62,7 @@ struct GoalsView: View {
             Spacer()
 
             Image(systemName: goal.isCompleted ? "checkmark.circle.fill" : "circle")
-                .foregroundColor(goal.isCompleted ? .green : .red)
+                .foregroundColor(goal.isCompleted ? .myAccent : .secondaryColor)
                 .onTapGesture {
                     viewModel.toggleGoalCompletion(goal)
                 }
@@ -72,15 +72,8 @@ struct GoalsView: View {
     }
 }
 extension View {
-    // TODO: Przeniesc jako view modifier
     func shimmering() -> some View {
-        overlay(
-            LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.white.opacity(0.6), Color.white.opacity(0.3)]), startPoint: .leading, endPoint: .trailing)
-                .mask(self)
-                .rotationEffect(.degrees(70))
-                .offset(x: -200)
-                .animation(Animation.linear(duration: 1.5).repeatForever(autoreverses: false), value: UUID())
-        )
+        self.modifier(ShimmeringModifier())
     }
 }
 

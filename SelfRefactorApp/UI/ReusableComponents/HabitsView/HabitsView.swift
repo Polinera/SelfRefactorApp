@@ -10,14 +10,14 @@ struct HabitsView: View {
                 HStack {
                     Label(habit.name, systemImage: habit.isDone ? "checkmark.circle.fill" : "circle")
                         .labelStyle(.titleAndIcon)
-                        .foregroundColor(habit.isDone ? .green : .primary)
+                        .foregroundColor(habit.isDone ? .myAccent : .primary)
 
                     Spacer()
 
                     if habit.isDone {
                         Text("Done")
                             .font(.caption)
-                            .foregroundColor(.green)
+                            .foregroundColor(.myAccentColor)
                     }
                 }
                 .contentShape(Rectangle())

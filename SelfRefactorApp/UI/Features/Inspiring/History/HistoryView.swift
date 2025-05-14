@@ -3,7 +3,6 @@ import SwiftUI
 
 struct HistoryView: View {
     @Environment(\.navigationPath) var navigationPath
-    
     @StateObject var viewModel = HistoryViewModel()
 
     var body: some View {

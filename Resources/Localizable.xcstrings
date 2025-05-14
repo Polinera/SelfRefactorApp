@@ -35,7 +35,13 @@
     "Add your habit" : {
 
     },
+    "Choose your mood" : {
+
+    },
     "Close" : {
+
+    },
+    "Date" : {
 
     },
     "Done" : {
@@ -66,9 +72,6 @@
         }
       }
     },
-    "Hello, Mood" : {
-
-    },
     "Hello,Journal" : {
 
     },
@@ -95,6 +98,12 @@
     "Key" : {
       "extractionState" : "manual"
     },
+    "Log your first mood" : {
+
+    },
+    "Mood" : {
+
+    },
     "Mood diary" : {
       "localizations" : {
         "pl" : {
@@ -111,13 +120,25 @@
     "No goals yet" : {
 
     },
+    "No mood logged today" : {
+
+    },
+    "No moods yet" : {
+
+    },
     "No quote available" : {
 
     },
     "Other inspiring things will be here" : {
 
     },
+    "Pick your mood" : {
+
+    },
     "Quick Actions" : {
+
+    },
+    "Range" : {
 
     },
     "Reflection" : {
@@ -126,8 +147,21 @@
     "Save" : {
 
     },
+    "Start tracking your mood to see trends over time." : {
+
+    },
     "Thought Journal" : {
 
+    },
+    "Today's mood: %@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Today's mood: %1$@ %2$@"
+          }
+        }
+      }
     },
     "Top emotions" : {
 

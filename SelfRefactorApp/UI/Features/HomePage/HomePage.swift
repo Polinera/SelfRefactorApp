@@ -24,7 +24,7 @@ struct HomePage: View {
         HStack(spacing: 16) {
             VStack(spacing: 16) {
                 QuoteView()
-                MoodMainPage()
+                MoodMainPage(viewModel: MoodViewModel())
             }
             .frame(maxWidth: .infinity)
 
@@ -39,7 +39,7 @@ struct HomePage: View {
                 QuoteView()
             }
             Section {
-                MoodMainPage()
+                MoodMainPage(viewModel: MoodViewModel())
             }
             Section("Your habits") {
                 HabitsView()
