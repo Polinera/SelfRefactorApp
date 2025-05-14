@@ -32,10 +32,10 @@
     "🧠 Your mood" : {
 
     },
-    "add your own habit" : {
+    "Add your habit" : {
 
     },
-    "add_new" : {
+    "Close" : {
 
     },
     "Done" : {
@@ -123,7 +123,7 @@
     "Reflection" : {
 
     },
-    "Statistic" : {
+    "Save" : {
 
     },
     "Thought Journal" : {
@@ -135,10 +135,7 @@
     "Wystapil blad" : {
 
     },
-    "You entered: %@" : {
-
-    },
-    "Your Habits" : {
+    "Your habits" : {
 
     }
   },

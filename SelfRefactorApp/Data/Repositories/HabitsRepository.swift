@@ -8,14 +8,36 @@ enum HabitsRepositoryError: Error {
 protocol HabitsRepositoryProtocol {
     func getHabits() throws -> [Habit]
     func save(habits: [Habit])
-    //    func toggleHabit(_ habit: Habit)
-    //    func resetHabits()
 }
 
 final class HabitsRepository: HabitsRepositoryProtocol {
 
     private let fileManager: FileManager
+    private let  userDefaults: UserDefaults
+
     private let fileName = "habit.json"
+    private let storageKey = "habits_storage_key"
+
+    init(fileManager: FileManager = .default, userDefaults: UserDefaults = .standard) {
+        self.fileManager = fileManager
+        self.userDefaults = userDefaults
+    }
+
+    func getHabits() throws -> [Habit] {
+        guard let data = UserDefaults.standard.data(forKey: storageKey) else {
+            return getInitialHabits()
+        }
+        return try JSONDecoder().decode([Habit].self, from: data)
+    }
+
+    func save(habits: [Habit]) {
+        do {
+            let data = try JSONEncoder().encode(habits)
+            userDefaults.set(data, forKey: storageKey)
+        } catch {
+            print("Error saving habits: \(error)")
+        }
+    }
 
     private var fileURL: URL {
         let manager = FileManager.default
@@ -23,34 +45,17 @@ final class HabitsRepository: HabitsRepositoryProtocol {
         return docs.appendingPathComponent(fileName)
     }
 
-    init(fileManager: FileManager = .default) {
-        self.fileManager = fileManager
-    }
+    private func getInitialHabits() -> [Habit] {
+        let sampleHabits = [
+            Habit(name: "Drink water"),
+            Habit(name: "Exercise")
+        ]
 
-    func getHabits() throws -> [Habit] {
-        if fileManager.fileExists(atPath: fileURL.path) {
-            return try getHabits(for: fileURL)
+        if let bundleURL = Bundle.main.url(forResource: "habits", withExtension: "json") {
+            let habits = try? getHabits(for: bundleURL)
+            return habits ?? sampleHabits
         } else {
-            if let bundleURL = Bundle.main.url(forResource: "habits", withExtension: "json") {
-                let habits = try getHabits(for: bundleURL)
-                // save to file manager
-                return habits
-            } else {
-                let sampleHabits = [
-                    Habit(name: "Drink water"),
-                    Habit(name: "Exercise")
-                ]
-                return sampleHabits
-            }
-        }
-    }
-
-    func save(habits: [Habit]) {
-        do {
-            let data = try JSONEncoder().encode(habits)
-            try data.write(to: fileURL)
-        } catch {
-            print("Error saving habits: \(error)")
+            return sampleHabits
         }
     }
 
@@ -63,4 +68,6 @@ final class HabitsRepository: HabitsRepositoryProtocol {
             throw HabitsRepositoryError.failedToDecode
         }
     }
+
+
 }

@@ -34,10 +34,16 @@ struct HomePage: View {
     }
 
     private var portraitLayout: some View {
-        VStack(spacing: 16) {
-            QuoteView()
-            MoodMainPage()
-            HabitsView()
+        Form {
+            Section {
+                QuoteView()
+            }
+            Section {
+                MoodMainPage()
+            }
+            Section("Your habits") {
+                HabitsView()
+            }
         }
     }
 }

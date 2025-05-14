@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct HabitPagePartView: View {
-//    @StateObject var habitManager = HabitManager()
     var habits: [Habit]
     var onHabitTapped: ((Habit) -> Void)?
 
@@ -31,6 +30,21 @@ struct HabitPagePartView: View {
         .onRotate { newOrientation in
             orientation = newOrientation
         }
+    }
+}
+
+struct HabitRowView: View {
+    let habit: Habit
+
+    var body: some View {
+        RoundedRectangle(cornerRadius: 20)
+            .fill(habit.isDone ? .myAccent : .secondaryColor)
+            .frame(height: 80)
+            .overlay(
+                Text("\(habit.isDone ? "Done " : "")\(habit.name)")
+                    .foregroundColor(.black)
+                    .padding()
+            )
     }
 }
 

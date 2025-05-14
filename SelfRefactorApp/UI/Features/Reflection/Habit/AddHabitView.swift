@@ -2,19 +2,47 @@
 import SwiftUI
 
 struct AddHabitView: View {
-    @Binding var userInput: String
-    
+    @Environment(\.dismiss) var dismiss
+
+    @State private var name: String = ""
+
+    var onSubmit: ((String) -> Void)?
+
     var body: some View {
-        Text("add your own habit")
-        TextField("Enter your habit", text: $userInput)
-            .padding()
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding(.horizontal)
-        
-        Text("You entered: \(userInput)")
+        NavigationStack {
+            Form {
+                Section {
+                    TextField("Enter your habit", text: $name)
+                        .padding()
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
+                        .onSubmit {
+                            onSubmit?(name)
+                            dismiss()
+                        }
+                } footer: {
+                    Button("Save") {
+                        onSubmit?(name)
+                        dismiss()
+                    }
+                    .buttonStyle(BorderedButtonStyle())
+                }
+            }
+            .navigationTitle("Add your habit")
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button.init(role: .cancel) {
+                        dismiss()
+                    } label: {
+                        Text("Close")
+                    }
+
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    AddHabitView(userInput: .constant("dfsf"))
+    AddHabitView()
 }

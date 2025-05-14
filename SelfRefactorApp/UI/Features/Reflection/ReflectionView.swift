@@ -1,91 +1,92 @@
 import SwiftUI
 
 struct ReflectionView: View {
-    @State var name = ""
-    @State var path = NavigationPath()
+   @StateObject var viewModel = ReflectionViewModel()
 
-    var body: some View {
-        NavigationStack(path: $path) {
-            List {
-                Section(header: Text("Quick Actions")) {
-                    NavigationLink("🎯 Manage goals") {
-                        GoalsView()
-                    }
+   @State var path = NavigationPath()
 
-                    NavigationLink("🧠 Your mood") {
-                        MoodView()
-                    }
+   var body: some View {
+       NavigationStack(path: $path) {
+           List {
+               Section(header: Text("Quick Actions")) {
+                   NavigationLink("🎯 Manage goals") {
+                       GoalsView()
+                   }
 
-                    Button("➕ Add habit") {
-                        path.append(ReflectionRoute.addHabit)
-                    }
-                    .foregroundColor(.accentColor)
-                }
+                   NavigationLink("🧠 Your mood") {
+                       MoodView()
+                   }
 
-                Section {
-                    Button {
-                        path.append(ReflectionRoute.journal)
-                    } label: {
-                        HStack {
-                            Image(systemName: "book.closed")
-                            Text("Thought Journal")
-                        }
-                    }
-                }
-            }
-            .listStyle(.insetGrouped)
-            .navigationTitle("Reflection")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(for: ReflectionRoute.self) { route in
-                switch route {
-                case .addHabit:
-                    AddHabitView(userInput: $name)
-                case .goal:
-                    GoalsView()
-                case .mood:
-                    MoodView()
-                case .journal:
-                    JournalView()
-                }
-            }
-        }
-    }
+                   Button("➕ Add habit") {
+                       viewModel.isShowingAddHabit = true
+                   }
+                   .foregroundColor(.black)
+               }
+
+               Section {
+                   Button {
+                       path.append(ReflectionRoute.journal)
+                   } label: {
+                       HStack {
+                           Image(systemName: "book.closed")
+                           Text("Thought Journal")
+                               .foregroundColor(.black)
+                       }
+                   }
+               }
+           }
+           .listStyle(.insetGrouped)
+           .navigationTitle("Reflection")
+           .navigationBarTitleDisplayMode(.inline)
+           .navigationDestination(for: ReflectionRoute.self) { route in
+               switch route {
+               case .goal:
+                   GoalsView()
+               case .mood:
+                   MoodView()
+               case .journal:
+                   JournalView()
+               }
+           }
+           .sheet(isPresented: $viewModel.isShowingAddHabit) {
+               AddHabitView { name in
+                   viewModel.addHabit(with: name)
+               }
+           }
+       }
+   }
 }
 
-
-// TODO: - Skorzystaj z chatgpt / Claude AI zeby podyskutowac na temat redesignu aplikacji, on moze Ci przygotowac kod tez. Popros o uwzglednienie view modeli, zeby korzystal z MVVM
-
 private struct NavigationCard: View {
-    let title: String
+   let title: String
 
-    var body: some View {
-        RoundedRectangle(cornerRadius: 20)
-            .fill(Color.primaryColor)
-            .frame(height: 100)
-            .overlay(
-                Text(title)
-                    .foregroundColor(.black)
-                    .font(.headline)
-            )
+   var body: some View {
+       RoundedRectangle(cornerRadius: 20)
+           .fill(Color.primaryColor)
+           .frame(height: 100)
+           .overlay(
+               Text(title)
+                   .foregroundColor(.black)
+                   .font(.headline)
+           )
 
-    }
+   }
 }
 
 private struct ThoughtJournalCard: View {
-    var body: some View {
-        RoundedRectangle(cornerRadius: 20)
-            .fill(Color.secondaryColor)
-            .frame(height: 100)
-            .overlay(
-                Text("Thought Journal")
-                    .foregroundColor(.black)
-                    .font(.headline)
-            )
-    }
+   var body: some View {
+       RoundedRectangle(cornerRadius: 20)
+           .fill(Color.secondaryColor)
+           .frame(height: 100)
+           .overlay(
+               Text("Thought Journal")
+                   .font(.headline)
+           )
+   }
 }
 
 
 
 #Preview {
-    ReflectionView()
+   ReflectionView()
 }

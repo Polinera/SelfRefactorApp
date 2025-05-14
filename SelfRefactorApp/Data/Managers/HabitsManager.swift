@@ -1,10 +1,7 @@
-
-
 protocol HabitsManagerProtocol {
     func toggleHabit(_ habit: Habit)
-    func resetHabits()
-
     func getHabits() -> [Habit]
+    func addHabit(with name: String)
 }
 
 final class HabitsManager: HabitsManagerProtocol {
@@ -24,11 +21,6 @@ final class HabitsManager: HabitsManagerProtocol {
         } catch {
 
         }
-
-    }
-
-    func resetHabits() {
-
     }
 
     func getHabits() -> [Habit] {
@@ -37,5 +29,14 @@ final class HabitsManager: HabitsManagerProtocol {
         } catch  {
             return []
         }
+    }
+
+    func addHabit(with name: String) {
+        let habit = Habit(name: name)
+
+        var habits = getHabits()
+        habits.append(habit)
+
+        repository.save(habits: habits)
     }
 }

@@ -1,5 +1,4 @@
 
-
 import Foundation
 
 struct Person: Codable, Identifiable {
