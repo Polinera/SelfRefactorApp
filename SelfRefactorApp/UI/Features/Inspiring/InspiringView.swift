@@ -27,6 +27,7 @@ struct InspiringView: View {
                 }
             }
         }
+        .environment(\.navigationPath, $path)
     }
 }
 
