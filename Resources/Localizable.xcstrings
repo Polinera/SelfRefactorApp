@@ -35,10 +35,16 @@
     "Add your habit" : {
 
     },
+    "Cancel" : {
+
+    },
     "Choose your mood" : {
 
     },
     "Close" : {
+
+    },
+    "Content" : {
 
     },
     "Date" : {
@@ -48,6 +54,9 @@
 
     },
     "Enter your habit" : {
+
+    },
+    "Entry title" : {
 
     },
     "Goals" : {
@@ -71,9 +80,6 @@
           }
         }
       }
-    },
-    "Hello,Journal" : {
-
     },
     "History" : {
       "extractionState" : "stale",
@@ -117,6 +123,12 @@
     "Mood rating" : {
 
     },
+    "My Journal" : {
+
+    },
+    "New Entry" : {
+
+    },
     "No goals yet" : {
 
     },
@@ -151,6 +163,9 @@
 
     },
     "Thought Journal" : {
+
+    },
+    "Title" : {
 
     },
     "Today's mood: %@ %@" : {

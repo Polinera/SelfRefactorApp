@@ -24,14 +24,8 @@ struct ReflectionView: View {
                }
 
                Section {
-                   Button {
-                       path.append(ReflectionRoute.journal)
-                   } label: {
-                       HStack {
-                           Image(systemName: "book.closed")
-                           Text("Thought Journal")
-                               .foregroundColor(.black)
-                       }
+                   NavigationLink("Thought Journal") {
+                       JournalView()
                    }
                }
            }

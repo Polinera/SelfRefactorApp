@@ -35,8 +35,9 @@ struct MoodView: View {
             .padding()
         }
     }
-
 }
+
+/// /todo nie zmienia sie automatycnie (pojawia sie nowy mood w homepage dopiero po ponownym otworzeniu appki
 
 #Preview {
     MoodView()

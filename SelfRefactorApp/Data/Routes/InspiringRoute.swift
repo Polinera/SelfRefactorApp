@@ -1,5 +1,4 @@
 enum InspiringRoute: Identifiable, Hashable {
-
     case addHistory
     case detailedPerson(Person)
 
